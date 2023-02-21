@@ -211,7 +211,7 @@ stages:
         targetType: 'inline'
         script: 'echo Run Integration Tests..'
 
-- stage: Release_QA
+- stage: Release_QA # where we deploy helm chart
   displayName: Deploy to QA
   jobs:
   - job: Deploy
