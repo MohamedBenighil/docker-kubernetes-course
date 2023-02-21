@@ -221,7 +221,7 @@ stages:
 
     steps:
 
-    - task: DownloadBuildArtifacts@1
+    - task: DownloadBuildArtifacts@1 # Download the Helm chart into System.ArtifactsDirectory
       displayName: Download Artifacts
       inputs:
         buildType: 'current'
@@ -229,7 +229,7 @@ stages:
         artifactName: 'drop\helm_chart'
         downloadPath: '$(System.ArtifactsDirectory)'
 
-    - task: HelmDeploy@0
+    - task: HelmDeploy@0  # Deploy the downloaded artifact
       displayName: Deploy Helm Chart
       inputs:
         connectionType: 'Azure Resource Manager'
@@ -251,7 +251,7 @@ stages:
       vmImage: 'ubuntu-latest'
 
     steps:
-    - task: Bash@3
+    - task: Bash@3 # Run integrated tests
       displayName: 'Run Integration Tests'
       inputs:
         targetType: 'inline'
