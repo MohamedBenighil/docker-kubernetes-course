@@ -251,7 +251,7 @@ stages:
       vmImage: 'ubuntu-latest'
 
     steps:
-    - task: Bash@3 # Run integrated tests
+    - task: Bash@3 # Run unreal integrated tests
       displayName: 'Run Integration Tests'
       inputs:
         targetType: 'inline'
@@ -261,12 +261,12 @@ stages:
   displayName: Deploy to PROD
   jobs:
 
-  - job: waitForValidation
+  - job: waitForValidation 
     displayName: Wait for external validation  
     pool: server    
     timeoutInMinutes: 4320 # job times out in 3 days
     steps:   
-    - task: ManualValidation@0
+    - task: ManualValidation@0 # manual validation once the email received
       timeoutInMinutes: 1 # 1440 # task times out in 1 day
       enabled: ${{ parameters.runCompletePipeline}}
       inputs:
@@ -292,7 +292,7 @@ stages:
         artifactName: 'drop\helm_chart'
         downloadPath: '$(System.ArtifactsDirectory)'
 
-    - task: AzureCLI@2
+    - task: AzureCLI@2 # deploy using Azure CLI, because we have more flexibility
       displayName: 'Deploy Helm Chart'
       inputs:
         azureSubscription: 'aks-spn-ca'
