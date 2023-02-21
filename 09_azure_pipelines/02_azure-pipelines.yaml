@@ -71,14 +71,14 @@ stages:
           checkov --directory 02_kubernetes_aks
         workingDirectory: '$(System.DefaultWorkingDirectory)'
 
-    - task: Bash@3
+    - task: Bash@3 # Not real tests.
       displayName: 'Run Unit Tests'
       enabled: ${{ parameters.runCompletePipeline}}
       inputs:
         targetType: 'inline'
         script: 'echo Run Unit Tests..'
 
-    - task: Bash@3
+    - task: Bash@3 #  Not real tests.
       displayName: 'Scan Code'
       enabled: ${{ parameters.runCompletePipeline}}
       inputs:
