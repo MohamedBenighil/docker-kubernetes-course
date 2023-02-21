@@ -184,7 +184,7 @@ stages:
         artifactName: 'drop\manifest'
         downloadPath: '$(System.ArtifactsDirectory)'
 
-    - task: Kubernetes@1 # deploy manifests 
+    - task: Kubernetes@1 # Deploy manifests 
       displayName: Deploy YAML Manifest
       inputs:
         connectionType: 'Azure Resource Manager'
