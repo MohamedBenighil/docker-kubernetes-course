@@ -166,7 +166,7 @@ stages:
         publishLocation: 'Container' # 'Container' | 'FilePath' ==> default 'Container' ie: you can see those artifacts after azure pipline (CI) finish. And the artifact will have the "drop\manifest" name 
 
 
-- stage: Release_DEV
+- stage: Release_DEV # where we deploy k8s manifests 
   displayName: Deploy to DEV
   jobs:
   - job: Deploy
