@@ -284,7 +284,7 @@ stages:
 
     steps:
 
-    - task: DownloadBuildArtifacts@1 # Get downloaded artifacts 
+    - task: DownloadBuildArtifacts@1 # Get downloaded artifacts into $(System.ArtifactsDirectory)
       displayName: Download Artifacts
       inputs:
         buildType: 'current'
