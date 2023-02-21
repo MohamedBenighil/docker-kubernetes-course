@@ -176,7 +176,7 @@ stages:
 
     steps:
 
-    - task: DownloadBuildArtifacts@1
+    - task: DownloadBuildArtifacts@1 # Download k8s manifests (Not helm)
       displayName: Download Artifacts
       inputs:
         buildType: 'current'
@@ -184,7 +184,7 @@ stages:
         artifactName: 'drop\manifest'
         downloadPath: '$(System.ArtifactsDirectory)'
 
-    - task: Kubernetes@1
+    - task: Kubernetes@1 # deploy manifests 
       displayName: Deploy YAML Manifest
       inputs:
         connectionType: 'Azure Resource Manager'
