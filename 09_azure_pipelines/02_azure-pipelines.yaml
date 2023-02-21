@@ -108,7 +108,7 @@ stages:
         script: |                                                                                                                            # find MEDIUM,HIGH,CRITICALsecurity issues     
           docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v $HOME/Library/Caches:/root/.cache/ aquasec/trivy --exit-code 0 --severity MEDIUM,HIGH,CRITICAL --ignore-unfixed acrforakscluster.azurecr.io/webapp:$(tag)
 
-    - task: AzureCLI@2 # login and push to acr using Docker CLI. We did not use BuildAndPush for simplicity
+    - task: AzureCLI@2 # login and push to acr using Docker CLI. We did not use BuildAndPush for simplicity (ie: like so more control)
       displayName: Push Container to ACR
       inputs:
         azureSubscription: 'aks-spn-ca'
