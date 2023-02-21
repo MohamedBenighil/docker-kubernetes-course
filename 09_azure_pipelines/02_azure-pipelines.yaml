@@ -50,7 +50,7 @@ stages:
           sudo python3.7 -m pip install -U checkov
         workingDirectory: '$(System.DefaultWorkingDirectory)'
 
-    - task: Bash@3
+    - task: Bash@3 # onces installed, scan Docker file 
       displayName: Scan Dockerfile
       enabled: ${{ parameters.runCompletePipeline}}
       continueOnError: true
