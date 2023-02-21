@@ -33,7 +33,7 @@ stages:
 
     steps:
     
-    - task: Bash@3 # install checkov
+    - task: Bash@3 # install checkov, because it is not installed by default 
       displayName: install checkov
       enabled: ${{ parameters.runCompletePipeline}}
       inputs:
