@@ -284,7 +284,7 @@ stages:
 
     steps:
 
-    - task: DownloadBuildArtifacts@1
+    - task: DownloadBuildArtifacts@1 # Get downloaded artifacts 
       displayName: Download Artifacts
       inputs:
         buildType: 'current'
