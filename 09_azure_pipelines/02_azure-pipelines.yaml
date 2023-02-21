@@ -100,7 +100,7 @@ stages:
         script: |
           docker build -t acrforakscluster.azurecr.io/webapp:$(tag) app-dotnet
 
-    - task: Bash@3 # Run a container aquasec/trivy and pass to it the created image.
+    - task: Bash@3 # Run a container aquasec/trivy, and pass to it the created image.
       displayName: Scan Container
       enabled: ${{ parameters.runCompletePipeline}}
       inputs:
@@ -108,7 +108,7 @@ stages:
         script: |
           docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v $HOME/Library/Caches:/root/.cache/ aquasec/trivy --exit-code 0 --severity MEDIUM,HIGH,CRITICAL --ignore-unfixed acrforakscluster.azurecr.io/webapp:$(tag)
 
-    - task: AzureCLI@2
+    - task: AzureCLI@2 # login and push to acr
       displayName: Push Container to ACR
       inputs:
         azureSubscription: 'aks-spn-ca'
