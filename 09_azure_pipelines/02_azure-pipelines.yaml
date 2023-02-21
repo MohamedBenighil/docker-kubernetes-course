@@ -61,7 +61,7 @@ stages:
           checkov --directory app-dotnet
         workingDirectory: '$(System.DefaultWorkingDirectory)'
 
-    - task: Bash@3
+    - task: Bash@3 # Scan kubernetes manifest files
       displayName: Scan YAML Manifest
       enabled: ${{ parameters.runCompletePipeline}}
       continueOnError: true
