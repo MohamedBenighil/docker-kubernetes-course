@@ -151,7 +151,7 @@ stages:
         targetType: 'inline'
         script: 'cat 02_kubernetes_aks/app-deploy.yaml'
 
-    - task: PublishBuildArtifacts@1 # Publish ALL manifests 
+    - task: PublishBuildArtifacts@1 # Publish k8s manifests 
       displayName: Upload YAML manifest
       inputs:
         PathtoPublish: '02_kubernetes_aks'
