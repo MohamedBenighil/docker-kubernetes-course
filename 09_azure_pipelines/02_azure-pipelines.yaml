@@ -51,7 +51,7 @@ stages:
         workingDirectory: '$(System.DefaultWorkingDirectory)' # The path where you execute the command : default $(Build.SourcesDirectory).
 
 
-    - task: Bash@3 # onces installed, scan Dockerfile of app-dotnet folder.
+    - task: Bash@3 # once installed, scan Dockerfile of app-dotnet folder.
       displayName: Scan Dockerfile
       enabled: ${{ parameters.runCompletePipeline}}
       continueOnError: true
