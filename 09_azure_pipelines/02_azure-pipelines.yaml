@@ -131,7 +131,7 @@ stages:
 
           az acr build -r acrforakscluster -t webapp:$(tag) app-dotnet
 
-    - task: qetza.replacetokens.replacetokens-task.replacetokens@4 # Update the docker image tag
+    - task: qetza.replacetokens.replacetokens-task.replacetokens@4 # Update the docker image tag: it looks for variables section (ie: tag variable), and find those variable in "02_kubernetes_aks/app-deploy.yaml" file. And update them.
       displayName: Replace TAG in YAML Deployment
       inputs:
         targetFiles: '02_kubernetes_aks/app-deploy.yaml'
