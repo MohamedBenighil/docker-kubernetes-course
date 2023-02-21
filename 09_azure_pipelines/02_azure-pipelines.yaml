@@ -257,7 +257,7 @@ stages:
         targetType: 'inline'
         script: 'echo Run Integration Tests..'
 
-- stage: Release_PROD
+- stage: Release_PROD # where we deploy helm chart
   displayName: Deploy to PROD
   jobs:
 
