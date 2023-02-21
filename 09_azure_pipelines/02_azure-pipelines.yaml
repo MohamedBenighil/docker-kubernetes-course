@@ -156,14 +156,14 @@ stages:
       inputs:
         PathtoPublish: '02_kubernetes_aks'
         ArtifactName: 'drop\manifest'
-        publishLocation: 'Container' # 'Container' | 'FilePath' ==> default 'Container'
+        publishLocation: 'Container' # 'Container' | 'FilePath' ==> default 'Container' ie: you can see those artifacts after azure pipline (CI) finish
 
     - task: PublishBuildArtifacts@1 # Pubish Helm Chart
       displayName: Upload Helm Chart
       inputs:
         PathtoPublish: '03_helm/firstchart'
         ArtifactName: 'drop\helm_chart'
-        publishLocation: 'Container'
+        publishLocation: 'Container' # 'Container' | 'FilePath' ==> default 'Container' ie: you can see those artifacts after azure pipline (CI) finish
 
 
 - stage: Release_DEV
