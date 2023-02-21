@@ -8,7 +8,7 @@ variables:
   tag: 1.0.0-$(Build.BuildId)
 
 parameters:
-- name: pool_image
+- name: benighil #pool_image
   displayName: Pool Image
   type: string
   default: ubuntu-latest
@@ -16,7 +16,7 @@ parameters:
   - windows-latest
   - ubuntu-latest
   - macOS-latest
-- name: runCompletePipeline
+- name: benighil #runCompletePipeline
   displayName: Run All Tasks ?
   type: boolean
   default: false
