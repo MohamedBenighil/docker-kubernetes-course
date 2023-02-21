@@ -100,7 +100,7 @@ stages:
         script: |
           docker build -t acrforakscluster.azurecr.io/webapp:$(tag) app-dotnet
 
-    - task: Bash@3 # Run a container aquasec/trivy, and pass to it the created image. (Scan Container)
+    - task: Bash@3 # Run a container from aquasec/trivy image, and pass to it the created image to scan it
       displayName: Scan Container
       enabled: ${{ parameters.runCompletePipeline}}
       inputs:
