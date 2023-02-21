@@ -93,14 +93,14 @@ stages:
 
     steps:
 
-    - task: Bash@3
+    - task: Bash@3 # Build docker image  
       displayName: Build Container
       inputs:
         targetType: 'inline'
         script: |
           docker build -t acrforakscluster.azurecr.io/webapp:$(tag) app-dotnet
 
-    - task: Bash@3
+    - task: Bash@3 # Run a container aquasec/trivy and pass to it the created image.
       displayName: Scan Container
       enabled: ${{ parameters.runCompletePipeline}}
       inputs:
