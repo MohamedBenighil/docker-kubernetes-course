@@ -145,20 +145,20 @@ stages:
         useLegacyPattern: false
         enableTelemetry: true
 
-    - task: Bash@3
+    - task: Bash@3 # Verify the tag is updated
       displayName: Verify TAG Updated
       inputs:
         targetType: 'inline'
         script: 'cat 02_kubernetes_aks/app-deploy.yaml'
 
-    - task: PublishBuildArtifacts@1
+    - task: PublishBuildArtifacts@1 # Publish ALL manifests 
       displayName: Upload YAML manifest
       inputs:
         PathtoPublish: '02_kubernetes_aks'
         ArtifactName: 'drop\manifest'
         publishLocation: 'Container'
 
-    - task: PublishBuildArtifacts@1
+    - task: PublishBuildArtifacts@1 # Pubish Helm Chart
       displayName: Upload Helm Chart
       inputs:
         PathtoPublish: '03_helm/firstchart'
