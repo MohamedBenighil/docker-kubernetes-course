@@ -33,7 +33,7 @@ stages:
 
     steps:
     
-    - task: Bash@3 # install checkov, because it is not installed by default 
+    - task: Bash@3 # Install checkov, because it is not installed by default 
       displayName: install checkov
       enabled: ${{ parameters.runCompletePipeline}}
       inputs:
@@ -51,7 +51,7 @@ stages:
         workingDirectory: '$(System.DefaultWorkingDirectory)' # The path where you execute the command : default $(Build.SourcesDirectory).
 
 
-    - task: Bash@3 # once installed, scan Dockerfile of app-dotnet folder.
+    - task: Bash@3 # Once installed, scan Dockerfile of app-dotnet folder.
       displayName: Scan Dockerfile
       enabled: ${{ parameters.runCompletePipeline}}
       continueOnError: true
@@ -78,7 +78,7 @@ stages:
         targetType: 'inline'
         script: 'echo Run Unit Tests..'
 
-    - task: Bash@3 #  Not real tests.
+    - task: Bash@3 # Not real tests.
       displayName: 'Scan Code'
       enabled: ${{ parameters.runCompletePipeline}}
       inputs:
