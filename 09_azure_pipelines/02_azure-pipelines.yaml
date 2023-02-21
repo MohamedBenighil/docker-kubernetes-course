@@ -156,7 +156,7 @@ stages:
       inputs:
         PathtoPublish: '02_kubernetes_aks'
         ArtifactName: 'drop\manifest'
-        publishLocation: 'Container'
+        publishLocation: 'Container' # 'Container' | 'FilePath' ==> default 'Container'
 
     - task: PublishBuildArtifacts@1 # Pubish Helm Chart
       displayName: Upload Helm Chart
