@@ -319,7 +319,7 @@ stages:
         targetType: 'inline'
         script: 'echo Run Integration Tests..'
         
-    - task: AzureCLI@2 # Scan the cluster. With one pod specific to k8s, and other specific to AKS
+    - task: AzureCLI@2 # Scan the cluster. With one pod specific to k8s, and other specific to AKS. Then delete them.
       displayName: 'Scan Cluster Config'
       # enabled: ${{ parameters.runCompletePipeline}}
       inputs:
